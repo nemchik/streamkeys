@@ -10,3 +10,4 @@ streamkeys.zip
 *.sublime-project
 npm-debug.log
 test-selectors/
+.eslintcache

@@ -25,11 +25,11 @@ Then to build the extension in watch mode, run:
 ```bash
 $ npm run develop
 ```
+
 In Chrome, load the unpacked extension from `build/unpacked-dev/`.
 
-
-
 ## NPM Scripts
+
 - `npm test`: Run unit tests.
 
 - `npm run develop`: Lints `code/*`, runs browserify, copies built code to `build/unpacked-dev/` and `test/streamkeys-ext/` in watch mode
@@ -41,7 +41,6 @@ In Chrome, load the unpacked extension from `build/unpacked-dev/`.
 - `npm run grunt:watch`: Watches for changes to JS files in `code/*`, lints `code/*`, runs browserify and copies built code to `build/unpacked-dev/`
 
 - `npm run grunt:lint`: Lints `code/*`
-
 
 ## Info
 
@@ -58,10 +57,10 @@ Adding a new site to the extension is straight forward. There are 3 steps:
 Figure out the css selectors for a site's media player buttons and create a new controller in `code/js/controllers/`. Naming scheme is `{Sitename}Controller.js`. You should copy code from an exisiting controller as a template. Here is an example controller for Fooplayer:
 
 ```javascript
-Filename: FooplayerController.js
+Filename: FooplayerController.js;
 
-"use strict";
-(function() {
+("use strict");
+(function () {
   var BaseController = require("BaseController");
 
   new BaseController({
@@ -72,7 +71,7 @@ Filename: FooplayerController.js
 
     playState: "#play_btn.playing",
     song: "#song",
-    artist: "#artist"
+    artist: "#artist",
   });
 })();
 ```
@@ -101,7 +100,7 @@ If it is not possible for the object's key name to be part of the sites URL then
 "last": { name: "LastFm", url: "http://www.last.fm", controller: "LastfmController.js", alias: ["lastfm"] }
 ```
 
-the alias here will match URLs: last.* AND lastfm.*
+the alias here will match URLs: last._ AND lastfm._
 
 The logic to construct the controller name is: Capitalized object key + "Controller". So, using the above example we should name our LastFM controller: "LastController" based on that key name.
 
